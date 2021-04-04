@@ -55,3 +55,10 @@ module.exports.create = function(req, res){
 module.exports.createSession = function(req, res){
     return res.redirect('/');
 }
+
+// Sogn Out and destroy session for user
+module.exports.destroySession = function(req, res){
+    req.logout();
+
+    return res.redirect('/');
+}
