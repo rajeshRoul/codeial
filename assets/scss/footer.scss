@@ -1,0 +1,28 @@
+footer{
+    display: flex;
+    justify-content: flex-start;
+    background-color: grey;
+
+    #rights{
+        color: white;
+        margin-left: 10px;
+    }
+
+    #navigation-items{
+        margin-left: 10px;
+        
+        ul{
+            list-style: none;
+            li{
+                a{
+                    color: white;
+                    text-decoration: none;
+                    &:hover{
+                        color: orange;
+                    }
+                }
+                
+            }
+        }
+    }
+}

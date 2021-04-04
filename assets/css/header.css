@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: darkcyan;
+  align-items: center; }
+  header #logo {
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px; }
+    header #logo p {
+      margin: 0px;
+      padding: 0px; }
+      header #logo p a {
+        text-decoration: none;
+        color: white;
+        font-family: sans-serif;
+        font-size: x-large;
+        font-weight: bold; }
+        header #logo p a:hover {
+          color: orange; }
+  header #header-navigation-items ul {
+    list-style: none; }
+    header #header-navigation-items ul li {
+      display: inline-block; }
+      header #header-navigation-items ul li a {
+        text-decoration: none;
+        color: white;
+        margin-right: 10px; }
+        header #header-navigation-items ul li a:hover {
+          color: orange; }

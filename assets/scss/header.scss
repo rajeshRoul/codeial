@@ -1,0 +1,45 @@
+header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: darkcyan;
+    align-items: center;
+    #logo{
+        margin: 0px;
+        margin-left: 10px;
+        padding: 0px;
+        p{
+            margin: 0px;
+            padding: 0px;
+
+            a{
+                text-decoration: none;
+                color: white;
+                font-family: sans-serif;
+                font-size:x-large;
+                font-weight: bold;
+
+                &:hover{
+                    color: orange;
+                }
+            }
+        }
+    }
+    #header-navigation-items{
+        ul{
+            list-style: none;
+            li{
+                display: inline-block;
+                a{
+                    text-decoration: none;
+                    color: white;
+                    margin-right: 10px;
+
+                    &:hover{
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+}
