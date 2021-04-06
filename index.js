@@ -14,6 +14,11 @@ const passportLocal = require('./config/passport-local-strategy');
 // Sass middleware
 const sassMiddleware = require('node-sass-middleware');
 
+// For flash messages
+const flash = require('connect-flash');
+// custom middleware to set flash messages
+const customMware = require('./config/middleware');
+
 app.use(sassMiddleware({
     src : './assets/scss',
     dest : './assets/css',
@@ -68,6 +73,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 // Use Express router
 app.use('/', require('./routes/index'));
