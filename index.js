@@ -11,6 +11,11 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 
+// outdated
+// const MongoStore = require('connect-mongo')(session);
+// Updated library
+var MongoDBStore = require('connect-mongodb-session')(session);
+
 // Sass middleware
 const sassMiddleware = require('node-sass-middleware');
 
@@ -27,12 +32,6 @@ app.use(sassMiddleware({
     prefix : '/css'
 }));
 
-
-// outdated
-// const MongoStore = require('connect-mongo')(session);
-
-// Updated library
-var MongoDBStore = require('connect-mongodb-session')(session);
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -78,7 +77,7 @@ app.use(flash());
 app.use(customMware.setFlash);
 
 // Use Express router
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes'));
 
 
 app.listen(port, function(err){

@@ -11,7 +11,9 @@
                 url: '/posts/create',
                 data: newPostForm.serialize(),
                 success: function(data){
+                    console.log(data.data.post);
                     let newPost = newPostDom(data.data.post);
+                    
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
                 },error: function(error){
@@ -58,8 +60,8 @@
                 },error: function(err){
                     console.log(err.responseText);
                 }
-            })
-        })
+            });
+        });
     }
 
 

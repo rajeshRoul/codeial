@@ -31,7 +31,7 @@ module.exports.destroy = async function(req, res){
 
             comment.remove();
 
-            let post = await Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
+            let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
             req.flash('success', 'Comment Removed');
             return res.redirect('back');
         }else{
@@ -40,7 +40,6 @@ module.exports.destroy = async function(req, res){
         }
     }catch(err){
         req.flash('error', err);
-        console.log("Error", err);
         return;
     }
     

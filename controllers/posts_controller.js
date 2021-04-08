@@ -9,10 +9,12 @@ module.exports.create = async function(req, res){
         });
 
         if(req.xhr){
+            // req.flash('success', 'Post Published');
             return res.status(200).json({
                 data: {
                     post: post
                 },
+                flash: {'success': 'Post Published'},
                 message: "post created!"
             });
         }

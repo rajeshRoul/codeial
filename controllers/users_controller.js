@@ -14,15 +14,13 @@ module.exports.update = function (req, res) {
     if(req.user.id == req.params.id){
         User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
             if(err){console.log('Error in updating user details'); return;}
+            req.flash('success', 'Updated!');
             return res.redirect('back');
         });
     }else{
+        req.flash('error', 'Unauthorized!');
         return res.status(401).send('Unauthorized');
     }
-}
-
-module.exports.posts = function(req, res){
-    return res.end('<h1>Users posts<h2>');
 }
 
 // Render Sign in page
@@ -61,6 +59,7 @@ module.exports.create = function(req, res){
                 res.redirect('/users/sign-in');
             })
         }else{
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect('back');
         }
     });
