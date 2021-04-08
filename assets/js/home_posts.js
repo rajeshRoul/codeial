@@ -11,9 +11,7 @@
                 url: '/posts/create',
                 data: newPostForm.serialize(),
                 success: function(data){
-                    console.log(data.data.post);
                     let newPost = newPostDom(data.data.post);
-                    
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
                 },error: function(error){
@@ -64,6 +62,10 @@
         });
     }
 
+    // Assign action to delete buttons of all posts to delete using ajax
+    for(i of $(' .delete-post-button')){
+        deletePost(i);
+    }
 
     createPost();
 }
