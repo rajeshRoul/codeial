@@ -10,9 +10,16 @@ module.exports.create = async function(req, res){
 
         if(req.xhr){
             // req.flash('success', 'Post Published');
+            console.log(post);
+            let newPost = await Post
+            .populate(post, {
+                path: 'user',
+                select: 'name'
+            });
+            console.log(post);
             return res.status(200).json({
                 data: {
-                    post: post
+                    post: newPost
                 },
                 flash: {'success': 'Post Published'},
                 message: "post created!"
