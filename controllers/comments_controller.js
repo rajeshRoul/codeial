@@ -3,19 +3,28 @@ const Post = require('../models/post');
 
 module.exports.create = async function(req, res){
     try{
-        let post = await Post.findById(req.body.post);
-        if(post){
-            let comment = await Comment.create({
+        let currPost = await Post.findById(req.body.post);
+        if(currPost){
+            let newComment = await Comment.create({
                 content : req.body.content,
                 post: req.body.post,
                 user: req.user._id
             });
 
-            post.comments.push(comment);
-            post.save();
-            req.flash('success', 'Comment Added');
+            currPost.comments.push(newComment);
+            currPost.save();
 
-            res.redirect('/');
+            if(req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment: newComment
+                    },
+                    message: "Comment Added"
+                });
+            }
+
+            req.flash('success', 'Comment Added');
+            return res.redirect('/');
         }
     }catch(err){
         req.flash('error', err);
