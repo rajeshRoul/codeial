@@ -19,7 +19,6 @@ module.exports.create = async function(req, res){
                 data: {
                     post: newPost
                 },
-                flash: {'success': 'Post Published'},
                 message: "post created!"
             });
         }

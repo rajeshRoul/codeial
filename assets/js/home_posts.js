@@ -30,7 +30,7 @@
             <p> ${ post.content }</p>
             <small> ${ post.user.name } </small>
             <div class="post-comments">
-                    <form action="/comments/create" method="POST">
+                    <form action="/comments/create" id="new-comment-form" method="POST">
                         <input type="text" name="content" placeholder="Type here to add comment..." required>
                         <input type="hidden" name="post" value="${ post._id }">
                         <input type="submit" value="Add Comment">
