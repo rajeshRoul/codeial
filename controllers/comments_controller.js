@@ -3,18 +3,23 @@ const Post = require('../models/post');
 
 module.exports.create = async function(req, res){
     try{
-        let currPost = await Post.findById(req.body.post);
-        if(currPost){
-            let newComment = await Comment.create({
+        let post = await Post.findById(req.body.post);
+        if(post){
+            let comment = await Comment.create({
                 content : req.body.content,
                 post: req.body.post,
                 user: req.user._id
             });
 
-            currPost.comments.push(newComment);
-            currPost.save();
+            post.comments.push(comment);
+            post.save();
 
             if(req.xhr){
+                let newComment = await Comment
+                .populate(comment, {
+                    path: 'user',
+                    select: 'email'
+                });
                 return res.status(200).json({
                     data: {
                         comment: newComment

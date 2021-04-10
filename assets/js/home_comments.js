@@ -17,8 +17,9 @@
         });
     };
 
-
+    // Method to return a comment to be added in the dom
     let newCommentDom = function(comment){
+        console.log(comment);
         return $(`<li>
         <p>
             <small>
