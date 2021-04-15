@@ -1,5 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
+const commentsMailer = require('../mailers/comments_mailer');
 
 module.exports.create = async function(req, res){
     try{
@@ -20,6 +21,7 @@ module.exports.create = async function(req, res){
                     path: 'user',
                     select: 'email'
                 });
+                commentsMailer.newComment(newComment);
                 return res.status(200).json({
                     data: {
                         'comment': newComment
