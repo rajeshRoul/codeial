@@ -21,10 +21,11 @@ module.exports.create = async function(req, res){
                 let newComment = await Comment
                 .populate(comment, {
                     path: 'user',
-                    select: 'email'
+                    select: ['email', 'name']
                 });
+                console.log(newComment);
                 // commentsMailer.newComment(newComment);
-                let job = queue.create('emails', comment).save(function(err){
+                let job = queue.create('emails', newComment).save(function(err){
                     if(err){console.log('Error in sending to the queue', err); return;}
                     console.log('job enqueued', job.id);
                 })
