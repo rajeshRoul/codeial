@@ -6,6 +6,16 @@
     <% } %>
     <p> <%= post.content %></p>
     <small> <%= post.user.name %> </small>
+    <br>
+    <small>
+        <% if(locals.user){%>
+            <a href="/likes/toggle/?id=<%=post._id%>&type=Post" class="toggle-like-button" data-likes="<%= post.likes.length%>">
+                <%= post.likes.length %> Likes
+            </a>
+        <%}else{%>
+            <%= post.likes.length %> Likes
+        <%}%>
+    </small>
     <div class="post-comments">
         <% if(locals.user){%> 
             <form action="/comments/create" id="new-comment-form" method="POST">
@@ -26,5 +36,6 @@
             </ul>
         </div>
     </div>
+    
 </li>
 

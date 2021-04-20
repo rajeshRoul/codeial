@@ -11,6 +11,16 @@
                     let newComment = newCommentDom(data.data.comment);
                     $(`#post-comments-${data.data.comment.post}`).prepend(newComment);
                     deleteComment($(' .delete-comment-button', newComment));
+
+                    new ToggleLike($(' .toggle-like-button', newComment));
+
+                    new Noty({
+                        theme: 'relax',
+                        text: "Comment published",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                    }).show();
                 },error: function(error){
                     console.log(error.responseText);
                 }
@@ -29,6 +39,12 @@
             <br>
             <small>
             ${ comment.user.email }
+            </small>
+
+            <small>
+                <a href="/likes/toggle/?id=${comment._id}&type=Comment" class="toggle-like-button" data-likes="0">
+                    0 Likes
+                </a>
             </small>
         </p>
     </li>`);

@@ -14,6 +14,16 @@
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
+
+                    new ToggleLike($(' .toggle-like-button', newPost));
+
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post published",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                    }).show();
                 },error: function(error){
                     console.log(error.responseText);
                 }
@@ -29,6 +39,14 @@
             </small>
             <p> ${ post.content }</p>
             <small> ${ post.user.name } </small>
+
+            <br>
+            <small>
+                <a href="/likes/toggle/?id=${post._id}&type=Post" class="toggle-like-button" data-likes="0">
+                    0 Likes
+                </a>
+            </small>
+            <br>
             <div class="post-comments">
                     <form action="/comments/create" id="new-comment-form" method="POST">
                         <input type="text" name="content" placeholder="Type here to add comment..." required>
