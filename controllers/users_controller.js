@@ -1,16 +1,64 @@
 const User = require('../models/user');
+const Friendship = require('../models/friendship');
 const fs = require('fs');
 const path = require('path');
 
-module.exports.profile = function(req, res){
-    User.findById(req.params.id, function(err, user){
-        return res.render('users_profile', {
-            title : 'profile',
-            profile_user: user
+// Load profile page
+module.exports.profile = async function(req, res){
+    let userTo = await User.findById(req.params.id);
+    if(userTo){
+        let friendship = await Friendship.findOne({
+            user_from: req.user.id,
+            user_to: userTo
         });
+        if(friendship){
+            return res.render('users_profile', {
+                title : 'profile',
+                profile_user: userTo,
+                friend: 'Unfollow'
+            });
+        }else{
+            return res.render('users_profile', {
+                title : 'profile',
+                profile_user: userTo,
+                friend: 'Follow'
+            });
+        }
+    }
+    return res.render('users_profile', {
+        title : 'profile',
+        profile_user: userTo,
+        friend: 'Error Fetching User Details'
     });
-    
 };
+
+// Add or Remove Friend
+module.exports.addFriend = async function(req, res){
+    try{
+        let friendship = await Friendship.findOne({
+            user_from: req.user.id,
+            user_to: req.params.id
+        });
+        let user = await User.findById(req.user.id);
+        if(friendship){
+            friendship.remove();
+            user.friends.pull(req.params.id);
+            return res.redirect('back');
+        }else{
+            await Friendship.create({
+                user_from: req.user.id,
+                user_to: req.params.id
+            });
+            await user.friends.push(req.params.id);
+            user.save();
+            return res.redirect('back');
+        }
+    }catch(err){
+        console.log("error", err);
+        return res.redirect('back');
+    }
+    
+}
 
 module.exports.update = async function (req, res) {
     
