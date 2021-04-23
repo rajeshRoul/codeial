@@ -43,16 +43,25 @@ module.exports.addFriend = async function(req, res){
         if(friendship){
             friendship.remove();
             user.friends.pull(req.params.id);
-            return res.redirect('back');
+            if(req.xhr){
+                return res.status(200).json({
+                    button_text: "Follow",
+                });
+            }
         }else{
             await Friendship.create({
                 user_from: req.user.id,
                 user_to: req.params.id
             });
-            await user.friends.push(req.params.id);
+            user.friends.push(req.params.id);
             user.save();
-            return res.redirect('back');
+            if(req.xhr){
+                return res.status(200).json({
+                    button_text: "Unfollow",
+                });
+            }
         }
+        return res.redirect('back');
     }catch(err){
         console.log("error", err);
         return res.redirect('back');
