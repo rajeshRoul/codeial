@@ -1,0 +1,40 @@
+#chatbox{
+    height: fit-content;
+    width: fit-content;
+    border: 2px solid grey;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 20;
+    #chats{
+        width: 250px;
+        height: 300px;
+        overflow-y: scroll;
+    }
+    form{
+        text-align: center;
+        button{
+            color: white;
+            background-color: green;
+        }
+    }
+}
+
+.send{
+    width: fit-content;
+    max-width: 200px;
+    background-color: rgb(98, 209, 219);
+    padding: 8px 3px;
+    font-size: 1.2rem;
+    float: right;
+    margin: 3px 5px;
+}
+
+.received{
+    width: fit-content;
+    max-width: 200px;
+    background-color: rgb(209, 100, 100);
+    padding: 8px 3px;
+    font-size: 1.2rem;
+    margin: 3px 5px;
+}
