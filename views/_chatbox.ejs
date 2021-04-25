@@ -1,14 +1,17 @@
-<div id="chatbox">
-    <div id="chats">
-        <div id="message" class="received">
-            Other message
-        </div>
-        <div id="message" class="send">
-            Your message
+<% if(locals.user){%>
+    <div id="chatbox">
+        <ul id="chats">
+            <li id="message" class="received">
+                <span>Other message</span>
+            </li>
+            <li id="message" class="send">
+                <span>Your message</span>
+            </li>
+        </ul>
+        <div id="form">
+            <input id="chat-message-input" type="text" name="message" placeholder="Type message here">
+            <button type="button" id="send-message">Send</button>
         </div>
     </div>
-    <form action="">
-        <input type="text" name="message" placeholder="Type message here">
-        <button type="submit">Send</button>
-    </form>
-</div>
+<%}%>
+
