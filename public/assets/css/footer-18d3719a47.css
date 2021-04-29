@@ -1,0 +1,16 @@
+footer {
+  display: flex;
+  justify-content: flex-start;
+  background-color: grey; }
+  footer #rights {
+    color: white;
+    margin-left: 10px; }
+  footer #navigation-items {
+    margin-left: 10px; }
+    footer #navigation-items ul {
+      list-style: none; }
+      footer #navigation-items ul li a {
+        color: white;
+        text-decoration: none; }
+        footer #navigation-items ul li a:hover {
+          color: orange; }
