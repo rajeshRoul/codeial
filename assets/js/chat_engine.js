@@ -3,8 +3,8 @@ class ChatEngine{
         this.chatBox = $(`#${chatBoxId}`);
         this.userEmail = userEmail;
 
-        this.socket = io.connect('http://54.210.58.227:5000', { transports: ['websocket', 'polling', 'flashsocket'] });
-
+        this.socket = io.connect('http://localhost:5000', { transports: ['websocket', 'polling', 'flashsocket'] });
+// http://54.210.58.227:5000
         if(this.userEmail){
             this.connectionHandler();
         }
@@ -43,16 +43,22 @@ class ChatEngine{
             if(data.user_email == self.userEmail){
                 messageType = 'send';
             }
-            newMessage.append($('<span>',{
+            newMessage.append($('<p>',{
                 'html': data.message
             }));
-            newMessage.append($('<sub>',{
+            newMessage.append($('<small>',{
                 'html': data.user_email
             }));
 
             newMessage.addClass(messageType);
+            newMessage.attr('id', 'message');
 
             $('#chats').append(newMessage);
         });
     }
 }
+
+
+$('#chats-header').click(function(){
+    $('#chats-container').toggleClass('chat-box-hide');
+});

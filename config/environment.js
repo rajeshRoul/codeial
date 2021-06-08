@@ -22,7 +22,7 @@ const development = {
         secure: false,
         auth: {
             user: 'roul.rajesh28@gmail.com',
-            pass: '...'
+            pass: 'rajesh2000'
         }
     },
     google_client_id: "583285833227-3vbn1vf5pm61le3ove4rcdaunb4s0qe8.apps.googleusercontent.com",

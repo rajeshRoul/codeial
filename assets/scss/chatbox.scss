@@ -1,32 +1,82 @@
 #chatbox{
     height: fit-content;
     width: fit-content;
-    border: 2px solid grey;
+    background-color: rgba(211, 211, 211, 0.582);
     position: fixed;
     bottom: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 2px #0000006e;
     right: 5px;
     z-index: 20;
+
+    #chats-header{
+        width: 100%;
+        box-sizing: border-box;
+        color: white;
+        background-color: teal;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.4rem;
+
+        span{
+            margin-right: 10px;
+        }
+    }
+
+    #chats-header:hover{
+        background-color: darkcyan;
+        cursor: pointer;
+    }
+
     #chats{
-        width: 250px;
-        height: 300px;
+        width: 350px;
+        height: 450px;
         overflow-y: scroll;
         list-style: none;
         margin: 0px;
         padding-inline-start: 0;
+        padding: 2px 5px;
+
+        #message{
+            word-break: break-all;
+            border-radius: 5px;
+            p{
+                margin: 0;
+            }
+            small{
+                color: rgb(56, 54, 54);
+                display: none;
+            }
+        }
+        #message:hover small{
+            display: block;
+        }
     }
     #form{
         text-align: center;
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+
+        input{
+            width: 70%;
+            padding: 4px;
+            font-size: 1.1rem;
+        }
         button{
+            padding: 4px;
+            font-size: 1.1rem;
+            width: 28%;
             color: white;
-            background-color: green;
+            background-color: teal;
         }
     }
 }
 
 .send{
-    width: fit-content;
-    max-width: 200px;
-    background-color: rgb(98, 209, 219);
+    max-width: 85%;
+    background-color: rgb(86, 218, 218);
     padding: 8px 3px;
     font-size: 1.2rem;
     float: right;
@@ -34,11 +84,16 @@
 }
 
 .received{
-    width: fit-content;
-    max-width: 200px;
-    background-color: rgb(209, 100, 100);
+    max-width: 85%;
+    background-color: rgb(251, 173, 173);
     padding: 8px 3px;
     font-size: 1.2rem;
     margin: 3px 5px;
     float: left;
+}
+
+.chat-box-hide{
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
 }

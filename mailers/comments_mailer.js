@@ -1,6 +1,7 @@
 const nodemailer = require('../config/nodemailer');
 
 exports.newComment = (comment) => {
+    console.log("triggered node mailer");
     let htmlString = nodemailer.renderTemplate({comment: comment}, '/comments/new_comment.ejs');
     nodemailer.transporter.sendMail({
         from: 'roul.rajesh28@gmail.com',

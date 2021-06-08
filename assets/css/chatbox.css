@@ -1,38 +1,78 @@
 #chatbox {
   height: fit-content;
   width: fit-content;
-  border: 2px solid grey;
+  background-color: rgba(211, 211, 211, 0.582);
   position: fixed;
   bottom: 5px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 2px #0000006e;
   right: 5px;
   z-index: 20; }
+  #chatbox #chats-header {
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    background-color: teal;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem; }
+    #chatbox #chats-header span {
+      margin-right: 10px; }
+  #chatbox #chats-header:hover {
+    background-color: darkcyan;
+    cursor: pointer; }
   #chatbox #chats {
-    width: 250px;
-    height: 300px;
+    width: 350px;
+    height: 450px;
     overflow-y: scroll;
     list-style: none;
     margin: 0px;
-    padding-inline-start: 0; }
+    padding-inline-start: 0;
+    padding: 2px 5px; }
+    #chatbox #chats #message {
+      word-break: break-all;
+      border-radius: 5px; }
+      #chatbox #chats #message p {
+        margin: 0; }
+      #chatbox #chats #message small {
+        color: #383636;
+        display: none; }
+    #chatbox #chats #message:hover small {
+      display: block; }
   #chatbox #form {
-    text-align: center; }
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box; }
+    #chatbox #form input {
+      width: 70%;
+      padding: 4px;
+      font-size: 1.1rem; }
     #chatbox #form button {
+      padding: 4px;
+      font-size: 1.1rem;
+      width: 28%;
       color: white;
-      background-color: green; }
+      background-color: teal; }
 
 .send {
-  width: fit-content;
-  max-width: 200px;
-  background-color: #62d1db;
+  max-width: 85%;
+  background-color: #56dada;
   padding: 8px 3px;
   font-size: 1.2rem;
   float: right;
   margin: 3px 5px; }
 
 .received {
-  width: fit-content;
-  max-width: 200px;
-  background-color: #d16464;
+  max-width: 85%;
+  background-color: #fbadad;
   padding: 8px 3px;
   font-size: 1.2rem;
   margin: 3px 5px;
   float: left; }
+
+.chat-box-hide {
+  height: 0;
+  overflow: hidden;
+  transition: all 1s ease-in-out; }

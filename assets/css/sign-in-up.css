@@ -1,0 +1,80 @@
+#outer-sign-in-up {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: whitesmoke; }
+  #outer-sign-in-up #user-sign-in {
+    min-width: 400px;
+    margin: 10px 5px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 5px #00000069;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    #outer-sign-in-up #user-sign-in form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; }
+      #outer-sign-in-up #user-sign-in form #otp {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px;
+        margin-top: 50px; }
+        #outer-sign-in-up #user-sign-in form #otp input {
+          width: 60%;
+          margin: 0;
+          padding: 0; }
+        #outer-sign-in-up #user-sign-in form #otp a {
+          text-decoration: none;
+          color: blue; }
+        #outer-sign-in-up #user-sign-in form #otp a:hover {
+          color: teal; }
+      #outer-sign-in-up #user-sign-in form input {
+        display: block;
+        padding: 5px;
+        width: 100%;
+        font-size: 1.2rem;
+        margin-top: 50px;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid teal; }
+      #outer-sign-in-up #user-sign-in form button {
+        margin-top: 30px;
+        padding: 10px;
+        width: 100%;
+        background-color: teal;
+        color: white;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        border: none; }
+      #outer-sign-in-up #user-sign-in form button:hover {
+        background-color: darkcyan;
+        cursor: pointer; }
+  @media only screen and (max-width: 444px) {
+    #outer-sign-in-up #user-sign-in {
+      min-width: 270px; }
+      #outer-sign-in-up #user-sign-in form #otp {
+        margin-top: 20px; }
+      #outer-sign-in-up #user-sign-in form input {
+        font-size: 1rem;
+        margin-top: 20px; }
+      #outer-sign-in-up #user-sign-in form button {
+        font-size: 1rem;
+        margin-top: 20px; } }
+  #outer-sign-in-up #other-methods {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    #outer-sign-in-up #other-methods img {
+      width: 44px;
+      height: 44px; }

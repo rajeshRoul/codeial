@@ -1,9 +1,21 @@
-<h1> User Sign In </h1>
+<link rel="stylesheet" href="<%= assetPath('/css/sign-in-up.css') %>">
 
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Sign In">
-</form>
-
-<p><a href="/users/auth/google"> Google SignIn / SignUp</a></p>
+<div id="outer-sign-in-up">
+    <div id = "user-sign-in">
+        <h1> User Sign In </h1>
+    
+        <form action="/users/create-session" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <a href="/users/sign-up">New User? Create an account</a>
+        <div class="horizontal-row"></div>
+        <p>Other ways to Sign In</p>
+        <div id="other-methods">
+            <a href="/users/auth/google">
+                <img src="https://hrcdn.net/community-frontend/assets/google-colored-20b8216731.svg" alt="Google Sign In">
+            </a>
+        </div>
+    </div>
+</div>
